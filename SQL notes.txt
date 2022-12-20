@@ -1,0 +1,82 @@
+School it is undependable (1 school row connected to many student row)
+
+SchoolTable:
+School reg 
+schoolname
+schoolid--> Primary key
+location
+phoneNumeber
+
+StudentTable:
+studentID--> Primary Key
+StudentName
+StudentAge
+StudentGender
+StudentEmail 
+StudentPhoneNumber
+schoolid--> Foriegn key (identify to check the school of the student and cane be repeated)
+
+SubjectTable: (Subject is in reference with student/details for data for which stuent holding which subject)
+subjectID--> Primary  key 
+Subjectname
+studentID--Foriegn key
+
+//Subjectmarks
+
+MarkTable:
+id --> Primary Key
+midterm
+final 
+q1
+q2
+subjectID--> Foriegn Key
+
+DESC  TableName --> Show the description of TableName 
+___________
+
+CREATE DATABASE my_Schooldb;
+
+USE my_Schooldb;
+
+CREATE TABLE School (
+school_registeration INT,
+school_name VARCHAR (50),
+school_ID INT NOT NULL PRIMARY KEY,
+location VARCHAR (50),
+phone_numebr VARCHAR (13)
+);
+
+CREATE TABLE Student (
+student_ID INT NOT NULL PRIMARY KEY,
+name varchar(50),
+age TINYINT ,
+gender VARCHAR (10),
+Phone_Number VARCHAR (13),
+email varchar(50),
+school_ID INT REFERENCES School(school_ID)
+);
+
+
+CREATE TABLE Subject (
+Subject_ID INT NOT NULL PRIMARY KEY,
+Subject_name VARCHAR (25),
+student_ID INT REFERENCES Student(student_ID)
+);
+
+CREATE TABLE Mark (
+mark_ID INT NOT NULL PRIMARY KEY,
+mid_term_mark TINYINT,
+mark_final TINYINT,
+mark_Quiz1 TINYINT,
+mark_Quiz2 TINYINT,
+subject_ID INT REFERENCES Subject(subject_ID)
+);
+
+********
+CREATE TABLE Customers (
+customer_ID INT NOT NULL PRIMARY KEY,
+first_Name VARCHAR (30),
+last_Name VARCHAR (30),
+phone VARCHAR (14),
+country VARCHAR (20),
+);
