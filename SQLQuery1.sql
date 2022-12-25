@@ -1,39 +1,3 @@
-School it is undependable (1 school row connected to many student row)
-
-SchoolTable:
-School reg 
-schoolname
-schoolid--> Primary key
-location
-phoneNumeber
-
-StudentTable:
-studentID--> Primary Key
-StudentName
-StudentAge
-StudentGender
-StudentEmail 
-StudentPhoneNumber
-schoolid--> Foriegn key (identify to check the school of the student and cane be repeated)
-
-SubjectTable: (Subject is in reference with student/details for data for which stuent holding which subject)
-subjectID--> Primary  key 
-Subjectname
-studentID--Foriegn key
-
-//Subjectmarks
-
-MarkTable:
-id --> Primary Key
-midterm
-final 
-q1
-q2
-subjectID--> Foriegn Key
-
-DESC  TableName --> Show the description of TableName 
-___________
-
 CREATE DATABASE my_Schooldb;
 
 USE my_Schooldb;
