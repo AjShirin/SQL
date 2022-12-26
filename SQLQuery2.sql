@@ -154,12 +154,20 @@ ORDER BY hire_date ASC;
 76. SELECT e.emp_id, e.emp_name, 12*salary "Annual Salary",(12*salary)/365 "Daily Salary"
 FROM employees e WHERE e.job_name = 'SALESMAN' ORDER BY "Annual Salary" ASC;
 77.
-78.
-79.
-80.
-81.
-82.
-83.
+78. 
+79.SELECT * FROM employees e,department d
+WHERE (dep_name = 'FINANCE' OR dep_name ='AUDIT') AND e.dep_id = d.dep_id
+ORDER BY e.dep_id ASC;
+80. SELECT * FROM employees e, salary_grade s WHERE e.salary BETWEEN s.min_salary AND s.max_salary
+ORDER BY grade ASC;
+81. SELECT e.emp_name, e.job_name, d.dep_name, e.salary, s.grade
+FROM employees e,department d, salary_grade s WHERE e.dep_id = d.dep_id 
+AND e.salary BETWEEN s.min_salary AND s.max_salary ORDER BY e.dep_id ;
+82. SELECT e.emp_name, e.job_name, e.salary, s.grade, d.dep_name
+FROM employees e, department d, salary_grade s WHERE e.dep_id = d.dep_id
+AND e.salary BETWEEN s.min_salary AND s.max_salary AND e.job_name NOT IN('CLERK')
+ORDER BY e.salary DESC;
+83. SELECT * FROM employees WHERE dep_id=1001 OR dep_id=2001;
 84.
 85.
 86.
